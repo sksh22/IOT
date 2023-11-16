@@ -1,0 +1,89 @@
+############### LED #############
+
+import RPi.GPIO as GPIO
+
+import time
+
+GPIO.setmode (GPIO.BOARD)
+
+GPIO.setwarnings(False)
+
+GPIO.setup(3,GP10.OUT)
+
+GPIO.setup(5,GPIO.OUT) [GPID OUT) GPIO.OUT)
+
+while True:
+
+GPIO.output (3.True)
+
+time.sleep(2)
+
+GPIO.output (3,False)
+
+GPIO.output (5,True)
+
+time.sleep(2)
+
+GPIO.output (5,False)
+
+GPIO.cleanup()
+
+
+
+######################## IR/Water ##########################
+
+import RPi.GPIO as GPIO
+
+GPIO.setmode (GPIO.BOARD)
+
+GPIO.setwarnings (False)
+
+GPIO.setup(5,GPIO.IN)
+
+GPIO.setup(3, GPIO.OUT)
+
+while True:
+
+var-GPIO.input (5)
+
+print(var)
+
+if var == 1:
+
+GPIO.output (3, True) print('Object Detected')
+
+else:
+
+GPIO.output (3,False) print('OBJECT Not detected')
+
+GPIO.cleanup()
+
+
+############################ temp #####################
+
+import RPi.GPIO as g
+
+import Adafruit DHT
+
+g.setmode (g.BOARD)
+
+while True:
+
+humidity, temperature-Adafruit_DHT.read_retry (Adafruit_DHT.DHT11,5) print("Hello")
+
+print (humidity, temperature)
+
+g.cleanup()
+
+
+########################### Camera #####################
+
+from picamera import PiCamera
+from time import sleep
+camera=PiCamera()
+camera.rotation=180
+camera.start_preview()
+for i in range(5):
+    sleep(3)
+    camera.capture('/home/pi/Desktop/san%s.jpg'%i)
+camera.stop_preview()
